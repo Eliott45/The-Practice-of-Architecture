@@ -18,6 +18,12 @@ namespace CodeBase.Infrastructure
 
 		public IEnumerator LoadScene(string name, Action onLoaded = null)
 		{
+			if (SceneManager.GetActiveScene().name == name)
+			{
+				onLoaded?.Invoke();
+				yield break;
+			}
+
 			var waitNextScene = SceneManager.LoadSceneAsync(name);
 
 			while (!waitNextScene.isDone)
