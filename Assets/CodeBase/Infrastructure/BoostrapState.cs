@@ -30,10 +30,8 @@ namespace CodeBase.Infrastructure
 		{
 		}
 
-		private void EnterLoadLevel()
-		{
-
-		}
+		private void EnterLoadLevel() =>
+			_gameStateMachine.Enter<LoadLevelState>();
 
 		private IInputService RegisterInputService()
 		{
